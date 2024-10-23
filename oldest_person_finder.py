@@ -1,7 +1,10 @@
 
 # Define a valid name (The name must only contain letters, spaces, and period for middle initials and shortened junior and senior)
-def valid_name_criteria(people_name):
-    return people_name.replace(" ", "").isalpha()
+def valid_name_criteria(name):
+    for char in name:
+        if not (char.isalpha() or char.isspace() or char in "-'.,"):
+            return False
+    return True
 
 # Define a valid age criteria (The age must be a positive integer between 0 and 122 - the highest age is based on Jeanne Calment, a French woman who passed away at the age of 122 years old in 1997)
 def valid_age_criteria(people_age):
