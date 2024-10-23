@@ -29,10 +29,26 @@ while True:
     name = input("Enter a name: ")
     while not valid_name_criteria(name):
         print("Error: Invalid name. Please enter a valid name (letters and spaces only).")
-        name = input("Enter name: ")
+        name = input("Enter a name: ")
     
     age = input("Enter age: ")
     while not valid_age_criteria(age):
         print("Error: Invalid age. Please enter a valid age (0 to 122).")
         age = input("Enter age: ")
+
+    # Store the valid entry into the array
+    people_info.append({"name": name, "age": int(age)})
+
+    while True:
+    # Ask if the user wants to add another entry
+        another_entry = input("Do you want to add another entry? (Yes/No): ").strip().lower() # The strip is to remove any spaces in the input, while the lower is to make the inputs case insensitive
+        if another_entry in {"Yes", "yes"}:
+            break
+        elif another_entry in {"No", "no"}:
+            print("Thank you for your entries.")
+            break
+        else:
+            print("Error: Only respond with 'Yes' or 'No'.")
+    if another_entry in {"No", "no"}:
+        break
 # Find the name and age of the oldest person
