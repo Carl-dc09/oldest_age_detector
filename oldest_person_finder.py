@@ -1,8 +1,8 @@
 
 # Define a valid name (The name must only contain letters, spaces, and period for middle initials and shortened junior and senior)
 def valid_name_criteria(name):
-    for char in name:
-        if not (char.isalpha() or char.isspace() or char in "-'.,"):
+    for name_char in name:
+        if not (name_char.isalpha() or name_char.isspace() or name_char in "-'.,"):
             return False
     return True
 
@@ -60,7 +60,7 @@ if people_info:
 
     if len(oldest_people) > 1:
         people_names = ", ".join(old_people["name"] for old_people in oldest_people[:-1])
-        people_names += f", and {oldest_people[-1]["name"]}"
+        people_names += f", and {oldest_people[-1]['name']}"
     else:
         people_names = oldest_people[0]["name"]
     
