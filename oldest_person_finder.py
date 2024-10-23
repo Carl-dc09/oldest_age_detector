@@ -53,9 +53,15 @@ while True:
         break
 # Find the name and age of the oldest person
 if people_info:
-    oldest_person = get_oldest_person(people_info)
-    people_names = ", ".join(old_person["name"] for old_person in oldest_person)
-    people_ages = oldest_person[0]["age"]
-    print(f"The oldest person(s) is/are: {people_names} with the age(s) of {people_ages} year(s) old.")
+    oldest_people = get_oldest_person(people_info)
+
+    if len(oldest_people) > 1:
+        people_names = ", ".join(old_people["name"] for old_people in oldest_people[:-1])
+        people_names += f", and {oldest_people[-1]["name"]}"
+    else:
+        people_names = oldest_people[0]["name"]
+    
+    people_age = oldest_people[0]["age"]
+    print(f"The oldest person(s) is/are: {people_names} with the age(s) of {people_age} year(s) old.")
 else:
     print("No valid entries were added.")
